@@ -25,7 +25,6 @@ const Products = () => {
   const columns = useRecoilValue(columnState)
   const [errorData, setErrorData] = useRecoilState(errorState)
   const [limit, setLimit] = useRecoilState(limitState)
-
   const items = useRecoilValue(itemsPerPageState)
   const totalProducts = 20
 
@@ -97,8 +96,6 @@ const Products = () => {
           borderRadius: "32px",
           color: "#282828",
           padding: "0.25rem 2rem",
-          opacity: limit >= totalProducts ? "0.3" : "1",
-          pointerEvents: limit >= totalProducts ? "none" : "auto",
           ":hover": {
             bgcolor: "#EFFFFD",
             boxShadow: "none",
@@ -106,6 +103,7 @@ const Products = () => {
         }}
         variant="contained"
         onClick={handleSeeMore}
+        disabled={limit >= totalProducts || isLoading}
       >
         SEE MORE
       </Button>

@@ -31,7 +31,8 @@ type Props = {
 
 const ProductCard = ({ product }: Props) => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
-  const [_, setCart] = useRecoilState(cartState)
+  const [cart, setCart] = useRecoilState(cartState)
+  const open = Boolean(anchorEl)
 
   const handleCart = () => {
     setCart((prev) => [...prev, product])
@@ -44,8 +45,6 @@ const ProductCard = ({ product }: Props) => {
   const handlePopoverClose = () => {
     setAnchorEl(null)
   }
-
-  const open = Boolean(anchorEl)
 
   return (
     <Card

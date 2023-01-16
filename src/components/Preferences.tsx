@@ -1,4 +1,3 @@
-import { CenterFocusStrong } from "@mui/icons-material"
 import { Box, Container, Typography } from "@mui/material"
 import { useWindowSize } from "hooks"
 import { useRecoilState, useRecoilValue } from "recoil"
